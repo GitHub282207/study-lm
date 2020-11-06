@@ -1,0 +1,213 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.container{
+    width: 100%;
+    height: 813px;
+    background: url("./image/section1-bg.png");
+    /* background-size: contain; */
+    background-size: 100% 100%;
+    overflow: hidden;
+    position: relative;
+}
+.txt{
+    width: 708px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* border: 1px solid black; */
+    z-index: 1;
+}
+.txt .info{
+    width: 100%;
+    font-family: Exo-Thin;
+	font-size: 60px;
+	font-weight: 100;
+	font-stretch: normal;
+	line-height: 75px;
+	letter-spacing: 2px;
+    color: #282828;
+    opacity: 0.6;
+}
+.info p{
+    text-align: center;
+}
+.txt .play{
+    width: 59px;
+    height: 59px;
+    background: url(./image/video-icon.png);
+    margin: 0 auto;
+    margin-top: 43px;
+    /* margin-bottom: 39px; */
+    
+}
+.txt button{
+    width: 190px;
+    height: 50px;
+    background-color: #ff6d6d;
+	border-radius: 3px;
+    margin: 0 auto;
+    margin: 39px 259px 0;
+    font-family: Exo-Regular;
+	font-size: 16px;
+	letter-spacing: 3px;
+    color: #ffffff;
+    border: none;
+}
+.txt .talk{
+    margin-top: 19px;
+}
+.txt .talk p{
+   text-align: center;
+   font-family: Exo-Regular;
+   font-size: 14px;
+   letter-spacing: 1px;
+   color: #282828;
+   opacity: 0.6;
+}
+.containertwo{
+    width: 100%;
+    height: 724px;
+    display:flex;
+    /* overflow: hidden; */
+}
+.left-wrpper{
+    flex:858;
+}
+.left-wrpper .desc{
+    width: 571px;
+    padding: 191px 152px 166px 149px;
+    /* border: 1px solid #282828; */
+}
+.left-wrpper .title{
+    font-family: Exo-Medium;
+	font-size: 16px;
+	letter-spacing: 3px;
+	color: #ff6d6d;
+}
+.article{
+    width: 532px;
+	height: 93px;
+	font-family: '微软雅黑';
+    font-size: 34px;
+    font-weight: normal;
+    line-height: 50px;
+	letter-spacing: 2px;
+    color: #282828;
+    margin-top: 16px;
+    margin-bottom: 45px;
+}
+.article .col{
+    color: #ff6d6d;
+}
+.article-all{
+    width: 571px;
+}
+.article-all-top{
+    margin-bottom: 39px;
+}
+.right-wrapper{
+    background-color: #ededed;
+    flex: 568;
+    height: 724px;
+    position: relative;
+   overflow: hidden;
+}
+.right-wrapper .triger{
+    width:0;
+    height:0;
+    border-color: transparent #fb8686;
+    border-width:482px 605px  0px 0px;
+    border-style: solid;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+}
+.containerthree{
+    width: 100%;
+    height: 675px;
+    background: url('./image/pen-holder.png') no-repeat;
+    background-size: 100% auto;
+    position: relative;
+}
+.wrapper-top{
+    width: 100%;
+   overflow: hidden;
+}
+.wrapper-top .title{
+    width: 100%;
+    text-align: center;
+    margin-top: 138px;
+}
+.wrapper-top p{
+    font-family: Exo-Medium;
+	font-size: 16px;
+	letter-spacing: 3px; 
+    color: #ff6d6d;
+    text-align: center;
+}
+.wrapper-top .ft{
+    font-family: Exo-Medium;
+	font-size: 30px;
+	font-weight: normal;
+	letter-spacing: 2px;
+    color: #282828;
+    margin-bottom: 13px;
+    text-align: center;
+}
+.wrapper-top .img-right{
+    width: 162px;
+    height: 215px;
+    /* display: inline-block; */
+    background:url('./image/earphones.png')no-repeat;
+    position: absolute;
+    top: 0;
+    right: 160px;
+}
+.wrapper-bottom{
+    display:flex;
+    margin-top: 91px;
+}
+.boxleft{
+    width: 342px;
+    height: 202px;
+    margin-left: 160px;
+}
+.wrapper-bottom .smallimg{
+    width: 65px;
+    height: 65px;
+    background: url('');
+    border: 1px solid #282828;
+    margin: 0 auto;
+    background-size: contain;
+}
+.boxcenter{
+    width: 342px;
+    height: 202px;
+    margin-left: 46px;
+}
+.boxright{
+    width: 342px;
+    height: 202px;
+    margin-left: 46px;
+}
+.wrapper-bottom .vp{
+    width: 100%;
+    text-align: center;
+    font-family: Exo-Medium;
+	font-size: 20px;
+	letter-spacing: 1px;
+	color: #282828;
+}
+.wrapper-bottom .muchtxt{
+    margin-top: 19px;
+    font-family: Exo-Medium;
+    font-size: 12px;
+    text-align: center;
+	letter-spacing: 1px;
+	color: #282828;
+	opacity: 0.66;
+}

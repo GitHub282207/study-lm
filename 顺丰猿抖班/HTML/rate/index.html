@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_2130859_p4fjqvepgb.css">
+    <title>Document</title>
+    <style>
+        /*去掉默认样式*/
+        input{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            -o-appearance: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        input[name="rate"]{
+            font-family: "iconfont";
+            font-size: 30px;
+            padding-right: 10px;
+            /*用来控制某一个属性发生变化的话，我就给你加上一个过渡时间*/
+            transition: all 0.4s ease;/*0.4秒完成变大效果*/
+
+        }
+        input[name="rate"]::after{
+            content: "\e66e";
+            color: #999;
+        }
+        input[name="rate"]:checked::after{
+            content: "\e6c3";
+            color: #ffa822;
+        }
+        input[name="rate"]:hover{
+            /* 用来写某种动画的 */
+            transform: scale(1.2);/*transform的第三个属性：给hover加缩放当前本身的多少倍*/
+        }
+        /* 鼠标放上去hover也可以点亮星星 */
+        input[name="rate"]:hover::after{
+            content: "\e6c3";
+            color: #ffa822;
+        }
+        input[name="rate"]:checked ~ input[name="rate"]::after{/*选中的那个元素的名为rate兄弟元素的伪类*/
+            content: "\e6c3";
+            color: #ffa822;
+        }
+        /* 被hover的那个单选框的兄弟节点也变成被点亮 */
+        input[name="rate"]:hover ~ input[name="rate"]::after{
+            content: "\e6c3";
+            color: #ffa822;
+            
+        }
+        .rate-content{
+            display: flex;/*弹性容器，让内部的子容器按比例继承它的宽或它的高*/
+            flex-flow: row-reverse;/*元素反向排列，整行翻转*/
+        }
+
+    </style>
+</head>
+<body>
+    <div class="rate-content">
+        <input type="radio" name="rate">
+        <input type="radio" name="rate">
+        <input type="radio" name="rate">
+        <input type="radio" name="rate">
+        <input type="radio" name="rate">
+    </div>
+</body>
+</html>

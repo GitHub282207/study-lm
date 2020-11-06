@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;/*最小高度，效果：手动调小可视窗口，高度不会变；vh单位，屏幕多高，高度多高*/
+    background: #4c4c4c url('https://unsplash.it/1500/900?image=1021');
+    background-size: cover;/*背景大小，让背景图以容器为主，cover图片把容器覆盖满*/
+    /* 弹性容器 */
+    display: flex;
+    justify-content: center;/*弹性容器内部的元素在x轴方向居中布局*/
+    align-items: center;/*弹性容器内部的元素在y轴方向居中布局*/
+}
+/* 让播放器去到页面的正中间 */
+.wrapper{
+    /* position: absolute;相对于body做定位
+    top: 50%;
+    left: 50%;
+    居中法一：
+    以上三行wrapper容器左上角去到浏览器正中间
+    再移回它自己高度和宽度的50%就会居于屏幕正中间
+    左上角为原点，所以都为-50%
+    transform: translate(-50%,-50%); */
+    /* 居中法二：把body设为弹性容器
+    让父容器具备某种属性，父容器就能够限制它内部的子容器去到父容器的正中间
+    称为让元素在某一个容器内水平垂直居中的方式 */
+    width: 850px;
+    /* 弹性布局的特点：父容器设置为弹性容器，其所有的子容器全部都会去到同一行（也可以将两个容器设置为行内块级），即video和speed */
+    display: flex;
+}
+.speed{
+    background-color: #fff;
+    /* 父容器为弹性容器的前提下，子容器百分百继承父容器的宽度，如果video也设为flex: 1，则video，speed按一比一继承父容器wrapper的宽度 */
+    /* 因为video设置了自身宽度，且video具有最小宽度，所以speed继承剩余宽度 */
+    flex: 1;
+    /* 在弹性容器当中，如果子容器需要做外边距，则相当于消耗掉了父容器的宽度 */
+    margin: 10px;
+    border-radius: 50px;/*圆角*/
+    display: flex;
+    align-items: flex-start;/*弹性开始的地方*/
+    overflow: hidden;
+}
+.speed-bar{
+    width: 100%;
+    height: 16.3%;/*滑动条滑到16.3%的时候播放速度刚好正常*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-170deg,#2376ae 0%,#c16ecf 100%);/*线性渐变色*/
+    color: #fff;
+    cursor: pointer;
+}
