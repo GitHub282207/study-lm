@@ -31,7 +31,7 @@ console.log(str.length);//new String('abcd;).length
 // 面试题
 var str = 'abc'
 str += 1 //'abc1'
-var test = typeof(str)
+var test = typeof(str) // var test = "string"   var test = new String('string').sign 
 if(test.length == 6){
     test.sign = 'typeOf的返回结果可能是String'
 }
