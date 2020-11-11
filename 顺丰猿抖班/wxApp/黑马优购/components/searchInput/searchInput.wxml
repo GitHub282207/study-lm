@@ -1,0 +1,11 @@
+<view class="search_input">
+	<!-- 搜索框要实现跳转，所以用navigator组件包裹 -->
+	<navigator
+	 class=""
+	 url="/pages/search/search"
+	 open-type="navigate"
+	>
+		搜索
+	</navigator>
+</view>
+
