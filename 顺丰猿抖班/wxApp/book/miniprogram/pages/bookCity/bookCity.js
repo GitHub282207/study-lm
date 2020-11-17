@@ -5,26 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hotData:[]
+    hotData:[],
+    classifyData:[]
   },
 
-  getList(){
+  getList() {
     wx.showLoading({
-      title: '正在加载',
-      mask: true
-    });
-
+      title: '正在加载'
+    })
     wx.cloud.callFunction({
-      name:'getList',
-      data:{}
-    }).then(res=>{
-      console.log(res);
-      wx.hideLoading();
+      name: 'getList',
+      data: {}
+    }).then(res => {
+      // console.log(res);
+      wx.hideLoading()
       const result = res.result || {}
       this.setData({
-        hotData:result.hotData
+        hotData: result.hotData,
+        classifyData: result.classifyData
       })
+      console.log(this.data.classifyData)
     })
+  },
+
+  toReading(e){
+    // console.log(e.currentTarget.dataset.url);
+    let url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url: `../bookSection/bookSection?url=${url}`,
+    });
       
   },
   /**

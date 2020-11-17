@@ -1,0 +1,48 @@
+<!-- [5, 3, 4, -1, -2, 9, -8] -->
+<!-- 5
+[-8, 3, 4, -1, -2, 9, -8]  5被覆盖 丢掉了5-->
+
+<!-- 实际问题 -->
+<!-- [{age:18},{age:19},{age:20}] 对象按年龄排序-->
+<script>
+    // 把升序还是降序功能封装给用户决定  类似于.sort
+function cb(a,b){
+    return a-b;
+}
+    function partition(arr,left,right){
+        if(left >= right) return;
+        let privt = arr[left];//基准值
+        let i = left, j = right;
+        while(i<j){
+            //在右边找到小于基准值的数 privt
+            //cb(arr[j],privt)<=0 = arr[j]<=privt
+            while(cb(arr[j],privt)<=0 && i<j){
+                j--;
+            }
+            arr[i]=arr[j]
+            //在左边找大于基准值的数 privt
+             //cb(arr[i],privt)>=0 = arr[i]>=privt
+            while(cb(arr[i],privt)>=0  && i<j){
+                i++;
+            }
+            arr[j]=arr[i]
+        }
+        arr[i] = privt;
+        //i=j退出循环 基准值的位置
+        partition(arr,left,i-1)
+        partition(arr,i+1,right)
+    }
+
+    function sort(arr){
+        partition(arr,0,arr.length - 1);
+        return arr;
+    }
+    console.log(sort([-1,-2,-4,6,9,-9]));
+
+
+
+    let arr2 = [{age:18},{age:19},{age:1}]
+    arr2.sort((a,b)=>{
+        return a.age - b.age;
+    })
+</script>
