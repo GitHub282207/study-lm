@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 长按 点(click) 滑动 
+    长按：计时器 mouseUp(leave)
+    移动端click 有延迟 300ms 它需要延迟一会看是单击事件还是双击事件
+
+    -->
+    <a href="www.baidu.com" target="_blank">baidu.com</a>
+    <div class="wrap">
+
+    </div>
+    <script>
+        // 标准：click touchstart touchmove touchend
+        // 事件(事件模型)：捕获目标 目标阶段 冒泡阶段
+        const wrap = document.querySelector('.wrap')
+        // 封装
+
+        // wrap.addEventListener('panleft',()=>{})
+
+        // 自定义事件、press、panleft
+        wrap.addEventListener('press', () => {
+            console.log('收到press事件了');
+        })
+
+        let timeout = null
+        function start() {
+            timeout = setTimeout(() => {
+                console.log('press发生了');
+                // 定义事件
+                let e = new CustomEvent('press')
+                // wrap触发该事件 500ms后触发
+                wrap.dispatchEvent(e);
+            }, 500);
+        }
+        let startX = 0, startY = 0
+        //touchstart - > move -> end ->click
+        wrap.addEventListener('touchstart', (event) => {
+            // console.log('tap 发生了');
+            // 手指按下时的坐标
+            startX = event.touches[0].clientX;
+            startY = event.touches[0].clientY;
+            start();
+            event.preventDefault();
+        })
+        wrap.addEventListener('touchmove', (event) => {
+            let diffx = event.touches[0].clientX - startX
+            let diffy = event.touches[0].clientY - startY
+            if (Math.abs(diffx) > Math.abs(diffy)) {
+                // if(Math.abs(diffx) <100) return;
+                if (diffx ** 2 + diffy ** 2 > 100) return;
+                if (diffx > 0) {
+                    console.log('右滑动');
+                } else {
+                    console.log('左滑动');
+                }
+            }
+        })
+        document.querySelector('a').addEventListener('click', (event) => {
+            event.preventDefault();//阻止跳到百度页面
+            event.stopImmediatePropagation();//阻止剩余事件得发生
+        })
+        document.querySelector('a').addEventListener('click', () => {
+
+        })
+        wrap.addEventListener('click', () => {
+            console.log('click 发生了');
+
+        })
+        function end() {
+            clearTimeout(timeout);
+        }
+
+        wrap.addEventListener('touchend', () => {
+            end();
+        })
+
+        // wrap.addEventListener('touchstart',(event)=>{
+        //     console.log(event);
+        // })       
+    </script>
+</body>
+
+</html>

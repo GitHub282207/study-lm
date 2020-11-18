@@ -70,6 +70,13 @@
           "id": -1,
           "name": "pages/bookCity/bookCity",
           "pathName": "pages/bookCity/bookCity",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/bookSection/bookSection",
+          "pathName": "pages/bookSection/bookSection",
           "scene": null
         }
       ]

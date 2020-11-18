@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="id1">2
+        <div id="id2">1</div>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        // let lis=document.querySelectorAll('li')
+        // lis.forEach(ele=>{
+        //     ele.addEventListener('click',()=>{
+        //         console.log(ele.textContent);
+        //     })
+        // })
+
+        const ul=document.querySelector('ul')
+        ul.addEventListener('click',(event)=>{
+            // console.log('xxxxx');
+            console.log(event.target.textContent);
+        })
+        const id1 = document.getElementById('id1')
+        const id2 = document.getElementById('id2')
+        // 点id1也会触发id2 事件冒泡
+        id1.addEventListener('click',()=>{
+            console.log('id1 click');
+        },false)
+        id2.addEventListener('click',()=>{
+            console.log('id2 click');
+        },false)
+
+        // true事件捕获
+        id1.addEventListener('click',()=>{
+            console.log('id1 click');
+        },true)
+        id2.addEventListener('click',()=>{
+            console.log('id2 click');
+        },true)
+    </script>
+</body>
+
+</html>
