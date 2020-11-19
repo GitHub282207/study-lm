@@ -73,7 +73,7 @@ Page({
       userId:app.globalData.openid,
       bookName:this.data.bookDetailData.name
     }).get().then(res=>{
-      // console.log(res);
+      console.log(res);
       const data = res.data[0] || []
       if(data.length == 0){//没有加入过书架
         db.collection('book').add({
