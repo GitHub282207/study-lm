@@ -26,7 +26,7 @@ Page({
       url: 'https://api-hmugo-web.itheima.net/api/public/v1/goods/detail',
       data: {goods_id},
       success: (result) => {
-        console.log(result);
+        // console.log(result);
         this.GoodsInfo=result.data.message;
 
         this.setData({
@@ -61,7 +61,7 @@ Page({
     if (index === -1) {
       //3  不存在 第一次添加
       this.GoodsInfo.num = 1;
-      // this.GoodsInfo.checked = true;
+      this.GoodsInfo.checked = true;
       cart.push(this.GoodsInfo);
     } else {
       // 4 已经存在购物车数据 执行 num++

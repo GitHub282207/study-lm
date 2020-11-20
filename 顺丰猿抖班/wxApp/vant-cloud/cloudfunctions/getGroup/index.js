@@ -23,7 +23,7 @@ exports.main = async (event, context) => {
         deleted:false
     }).get()
     if(oneGroup.data.length>0){
-        const uaerInfo = await db.collection('user').where({
+        const userInfo = await db.collection('user').where({
             openId:oneGroup.data[0].createBy
         }).get()
         oneGroup.data[0].createBy = userInfo.data[0]

@@ -148,6 +148,7 @@ Page({
       // 还有下一页数据
       this.QueryParams.pagenum++;
       this.getGoodsList();
+      
     }
   },
 
