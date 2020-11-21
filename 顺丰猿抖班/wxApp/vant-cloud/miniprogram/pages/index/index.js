@@ -36,32 +36,32 @@ Page({
       return
     } 
     // 把groupName传给后端
-    // wx.cloud.callFunction({
-    //   name: 'createGroup',
-    //   data: {
-    //     groupName: self.data.groupName
-    //   },
-    //   success(res) {
-    //     // console.log(res);
-    //     self.setData({
-    //       groupName: ''
-    //     })
-    //     Notify({
-    //       message: '新建成功',
-    //       duration: 3000,
-    //       selector: '#notify-selector',
-    //       background: '#28a745'
-    //     });
-    //     setTimeout(() => {
-    //       wx.switchTab({
-    //         url: '/pages/group/group'
-    //       })
-    //     }, 1500)
-    //   },
-    //   fail(err) {
-    //     console.log('错误', err);
-    //   }
-    // })
+    wx.cloud.callFunction({
+      name: 'createGroup',
+      data: {
+        groupName: self.data.groupName
+      },
+      success(res) {
+        // console.log(res);
+        self.setData({
+          groupName: ''
+        })
+        Notify({
+          message: '新建成功',
+          duration: 3000,
+          selector: '#notify-selector',
+          background: '#28a745'
+        });
+        setTimeout(() => {
+          wx.switchTab({
+            url: '/pages/group/group'
+          })
+        }, 1500)
+      },
+      fail(err) {
+        console.log('错误', err);
+      }
+    })
   },
   onGroupNameChange(event) {
     // console.log(event);

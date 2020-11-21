@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="" id="app">
+        <input type="text" id="input">
+        <span id="span">hello</span>
+    </div>
+
+    <script>
+        const data = {
+            _text:'hello world'
+        }
+        const input = document.getElementById('input')
+        const span = document.getElementById('span')
+        // input.addEventListener('change',(e)=>{
+        //     console.log(e.target.value);
+        //     span.innerHTML = e.target.value
+        // })
+
+        //数据劫持
+        Object.defineProperty(data,'text',{
+            get (){
+                // console.log('获取数据');
+                return data._text//同意下面的取值  console.log(data.text);
+            },
+            set(newVal){
+                // console.log('newVal');//newVal会取到www
+                span.innerHTML = newVal
+                
+            }
+        })
+        input.addEventListener('keyup',function(e){
+            data.text = e.target.value//输入的值交给data对象存起来
+            console.log(data.text);
+        })
+        // data.text = 'www'//改值，因为被劫持所以不会生效
+        // console.log(data._text);// 因为被劫持 undefine 
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id='btn'>click</button>
+    <script>
+        const button = document.getElementById('btn')
+        button.addEventListener('click',function(){
+            this.innerHTML = 'hello'//this指向button
+        })
+        button.addEventListener('click',()=>{
+            console.log(this);//this 指向window window不算dom结构,所以页面没有反应
+            this.innerHTML = 'hello'//箭头函数不认识this,没有反应
+        })
+    </script>
+</body>
+</html>
