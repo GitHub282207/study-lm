@@ -1,0 +1,14 @@
+<view class="search-bar">
+	<navigator
+	 wx:if="{{isNavigator}}"
+	 url='/pages/search/search'
+	 class="container"
+	>
+		<van-icon class="icon" name="search" />
+	</navigator>
+	<!-- 实现搜索页面和首页搜索框的不同 -->
+	<view wx:else class="search-input">
+		<input class="text" placeholder="搜索"></input>
+	</view>
+</view>
+

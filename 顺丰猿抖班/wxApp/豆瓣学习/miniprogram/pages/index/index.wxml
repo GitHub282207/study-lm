@@ -1,0 +1,69 @@
+<search isNavigator="{{true}}"></search>
+
+<view class="module-group">
+	<view class="module-top">
+		<view class="module-title">电影</view>
+		<navigator class="module-more">更多</navigator>
+	</view>
+	<scroll-view class="module-view" scroll-x="{{true}}">
+		<navigator class="item-navigator">
+			<view class="item-group">
+				<view class="onegroup">
+					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
+					<view class="item-title">热气球飞行家</view>
+					<stars rate="7.5"></stars>
+				</view>
+			</view>
+		</navigator>
+		<navigator class="item-navigator">
+			<view class="item-group">
+				<view class="onegroup">
+					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
+					<view class="item-title">热气球飞行家</view>
+				</view>
+			</view>
+		</navigator>
+		<navigator class="item-navigator">
+			<view class="item-group">
+				<view class="onegroup">
+					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
+					<view class="item-title">热气球飞行家</view>
+				</view>
+			</view>
+		</navigator>
+		<navigator class="item-navigator">
+			<view class="item-group">
+				<view class="onegroup">
+					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
+					<view class="item-title">热气球飞行家</view>
+				</view>
+			</view>
+		</navigator>
+		<navigator class="item-navigator">
+			<view class="item-group">
+				<view class="onegroup">
+					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
+					<view class="item-title">热气球飞行家</view>
+				</view>
+			</view>
+		</navigator>
+		<navigator class="item-navigator">
+			<view class="item-group">
+				<view class="onegroup">
+					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
+					<view class="item-title">热气球飞行家</view>
+				</view>
+			</view>
+		</navigator>
+		<navigator class="item-navigator">
+			<view class="item-group">
+				<view class="onegroup">
+					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
+					<view class="item-title">热气球飞行家</view>
+				</view>
+			</view>
+		</navigator>
+	</scroll-view>
+
+</view>
+

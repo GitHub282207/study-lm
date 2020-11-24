@@ -1,0 +1,15 @@
+/* components/stars/stars.wxss */
+.img{
+    /* color:yellow; */
+    width: 20rpx;
+    height: 20rpx;
+}
+
+.rate-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20rpx;
+    font-size: 20rpx;
+    color:#ccc;
+}

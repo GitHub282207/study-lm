@@ -1,0 +1,26 @@
+<view class="rate-group">
+	<image
+	 style='width:{{starsize}}rpx;height:{{starsize}}rpx;'
+	 wx:for="{{lights}}"
+	 wx:key="index"
+	 src="../../images/rating_star_small_on.png"
+	 class="img"
+	/>
+	<image
+	 style='width:{{starsize}}rpx;height:{{starsize}}rpx;'
+	 wx:for="{{halfs}}"
+	 wx:key="index"
+	 src="../../images/rating_star_small_half.png"
+	 class="img"
+	/>
+	<image
+	 style='width:{{starsize}}rpx;height:{{starsize}}rpx;'
+	 wx:for="{{grays}}"
+	 wx:key="index"
+	 src="../../images/rating_star_small_off.png"
+	 class="img"
+	/>
+
+	<text style='font-size:{{fontsize}}rpx;color:{{fontcolor}};'>{{ratetext}}</text>
+</view>
+
