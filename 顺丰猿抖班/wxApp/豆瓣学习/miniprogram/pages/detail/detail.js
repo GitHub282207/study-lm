@@ -1,4 +1,5 @@
-// pages/detail/detail.js
+
+import {network} from "../../utils/network.js";
 Page({
 
   /**
@@ -12,6 +13,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log(options);
+    var that = this;
+    var type = options.type;
+    var id = options.id;
+    network.getItemDetail({
+      type:type,
+      id:id,
+      success:function(item){
+        console.log(item);
+        that.setData({
+          item:item
+        })
+      }
+    })
 
   },
 

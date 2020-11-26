@@ -21,6 +21,6 @@
 	 class="img"
 	/>
 
-	<text style='font-size:{{fontsize}}rpx;color:{{fontcolor}};'>{{ratetext}}</text>
+	<text wx:if="{{istext}}" style='font-size:{{fontsize}}rpx;color:{{fontcolor}};'>{{ratetext}}</text>
 </view>
 

@@ -1,69 +1,29 @@
 <search isNavigator="{{true}}"></search>
 
-<view class="module-group">
-	<view class="module-top">
-		<view class="module-title">电影</view>
-		<navigator class="module-more">更多</navigator>
-	</view>
-	<scroll-view class="module-view" scroll-x="{{true}}">
-		<navigator class="item-navigator">
-			<view class="item-group">
-				<view class="onegroup">
-					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
-					<view class="item-title">热气球飞行家</view>
-					<stars rate="7.5"></stars>
-				</view>
-			</view>
-		</navigator>
-		<navigator class="item-navigator">
-			<view class="item-group">
-				<view class="onegroup">
-					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
-					<view class="item-title">热气球飞行家</view>
-				</view>
-			</view>
-		</navigator>
-		<navigator class="item-navigator">
-			<view class="item-group">
-				<view class="onegroup">
-					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
-					<view class="item-title">热气球飞行家</view>
-				</view>
-			</view>
-		</navigator>
-		<navigator class="item-navigator">
-			<view class="item-group">
-				<view class="onegroup">
-					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
-					<view class="item-title">热气球飞行家</view>
-				</view>
-			</view>
-		</navigator>
-		<navigator class="item-navigator">
-			<view class="item-group">
-				<view class="onegroup">
-					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
-					<view class="item-title">热气球飞行家</view>
-				</view>
-			</view>
-		</navigator>
-		<navigator class="item-navigator">
-			<view class="item-group">
-				<view class="onegroup">
-					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
-					<view class="item-title">热气球飞行家</view>
-				</view>
-			</view>
-		</navigator>
-		<navigator class="item-navigator">
-			<view class="item-group">
-				<view class="onegroup">
-					<image src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2624376523.webp" class="oneimg" />
-					<view class="item-title">热气球飞行家</view>
-				</view>
-			</view>
-		</navigator>
-	</scroll-view>
+<!-- 电影 
+三个模块除了标题和渲染数据不一样，其他都一样 重构 组件化 indexmodule
+?type=movie携带的参数 会传给js 中onload方法的Option
+-->
+<indexmodule
+ title="电影"
+ items="{{movies}}"
+ moreurl="/pages/list/list?type=movie"
+ type="movie"
+></indexmodule>
 
-</view>
+<!-- 电视剧 -->
+<indexmodule
+ title="电视剧"
+ items="{{tvs}}"
+ moreurl="/pages/list/list?type=tv"
+ type="tv"
+></indexmodule>
+
+<!-- 综艺 -->
+<indexmodule
+ title="综艺"
+ items="{{shows}}"
+ moreurl="/pages/list/list?type=show"
+ type="show"
+></indexmodule>
 

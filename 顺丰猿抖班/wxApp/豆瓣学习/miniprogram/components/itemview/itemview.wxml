@@ -1,0 +1,16 @@
+<navigator
+ wx:if="{{item}}"
+ class="item-navigator"
+ url="{{itemurl}}"
+>
+	<view class="item-group">
+		<view class="onegroup">
+			<image src="{{item.cover.url}}" class="oneimg" />
+			<view class="item-title">{{item.title}}</view>
+			<!-- 这是一个星星组件 -->
+			<stars rate="{{item.rating.value}}"></stars>
+		</view>
+	</view>
+</navigator>
+<view wx:else class="item-navigator"></view>
+

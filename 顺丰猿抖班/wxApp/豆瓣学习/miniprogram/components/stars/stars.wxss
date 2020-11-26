@@ -9,7 +9,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20rpx;
     font-size: 20rpx;
     color:#ccc;
 }

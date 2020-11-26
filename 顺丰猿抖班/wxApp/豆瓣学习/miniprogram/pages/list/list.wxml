@@ -1,2 +1,10 @@
-<!--pages/list/list.wxml-->
-<text>pages/list/list.wxml</text>
+<search isNavigator="{{true}}"></search>
+<view class="container">
+	<itemview
+	 wx:for="{{items}}"
+	 wx:key="{{item.title}}"
+	 item="{{item}}"
+	 itemurl="/pages/detail/detail?type={{type}}&id={{item.id}}"
+	></itemview>
+</view>
+

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "search":"/components/search/search",
-    "stars":"/components/stars/stars"
+    "stars":"/components/stars/stars",
+    "indexmodule":"/components/indexmodule/indexmodule"
   }
 }
