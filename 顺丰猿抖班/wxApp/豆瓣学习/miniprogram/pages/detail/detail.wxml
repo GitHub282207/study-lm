@@ -4,21 +4,21 @@
 		<view class="left-detail">
 			<view class="item-rate">
 				<stars
-				 rate="8"
+				 rate="{{item.rating.value*2}}"
 				 starsize="30"
 				 fontsize="30"
 				 fontcolor="#595959"
 				></stars>
-				<text class="comment-persons">{{item.rating_count}}人评价</text>
+				<text class="comment-persons">{{item.rating.count}}人评价</text>
 			</view>
 			<view class="item-sub-detail">
-				<view class="item-type">{{item.dutations[0]}} 动作/奇幻/冒险</view>
-				<view class="item-show">2018-12-07(中国大陆)上映 美国</view>
-				<view class="item-actor">温子仁(导演)/杰神.莫妈/埃美拍.希尔德/威廉.大幅</view>
+				<view class="item-type">{{item.durations[0]}} {{item.genres}}</view>
+				<view class="item-show">{{item.pubdate[0]}}上映 {{item.countries[0]}}</view>
+				<view class="item-actor">{{item.authors}}</view>
 			</view>
 		</view>
 		<view class="right-detail">
-			<image src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2626067725.webp" />
+			<image src="{{item.cover.image.small.url}}" />
 		</view>
 	</view>
 </view>
@@ -26,70 +26,31 @@
 <view class="item-tags">
 	<view class="item-tags-title">豆瓣成员常用标签</view>
 	<view class="item-tags-list">
-		<text>黑色幽默</text>
-		<text>小人物</text>
-		<text>喜剧</text>
-		<text>中国大陆</text>
-		<text>人性</text>
-		<text>剧情</text>
-		<text>方言</text>
+		<text wx:for="{{tags}}">{{item}}</text>
 	</view>
 </view>
 
 <view class="comment-list-group">
-	<view class="comment-title">短评(55484525)</view>
-	<view class="comment-group">
+	<view class="comment-title">短评({{totalComments}})</view>
+	<view wx:for="{{comments}}" class="comment-group">
 		<view class="left-comment">
-			<image class="avatar" src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2623879042.webp" />
+			<image class="avatar" src="{{item.user.avatar}}" />
 		</view>
 		<view class="right-comment">
 			<view class="username-rate">
-				<text class="username">凌睿</text>
+				<text class="username">{{item.user.name}}</text>
 				<stars
-				 rate="5"
+				 rate="{{item.rating.value*2}}"
 				 starsize="30"
 				 istext="{{false}}"
 				></stars>
 			</view>
-			<view class="ralease-time">2018-12-03 12:22:22</view>
-			<view class="content">7岁女孩张望和父亲张国华相依为命，生活虽是清贫，但还是生活的很幸福。一天张望突然流鼻血不止，去医院检查，才知得了急性白血病，治疗需要30多万的费用，筹钱无果的张国华整日以泪洗面；而张望，清楚自己的家庭情况，毅然决定放弃治疗。记者王小月得知此事，赶往张国华家中，才得知了张望的真实身世.....事件经媒体曝光后，张望引起社会各界关注，全国各地纷纷捐款资助，很快，张望的医疗费就凑够了。感受到社会爱的力量和无数陌生人的关心，也使张望变得无比坚强，她用常人难以想象的痛苦接受着治疗，并一次一次经历着鬼门关，然而就在大家都认为张望的病快要好起来的时候，张望却做了一个出乎所有人意料的决定.</view>
+			<view class="ralease-time">{{item.create_time}}</view>
+			<view class="content">{{item.comment}}</view>
 		</view>
 	</view>
-	<view class="comment-group">
-		<view class="left-comment">
-			<image class="avatar" src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2623879042.webp" />
-		</view>
-		<view class="right-comment">
-			<view class="username-rate">
-				<text class="username">凌睿</text>
-				<stars
-				 rate="5"
-				 starsize="30"
-				 istext="{{false}}"
-				></stars>
-			</view>
-			<view class="ralease-time">2018-12-03 12:22:22</view>
-			<view class="content">7岁女孩张望和父亲张国华相依为命，生活虽是清贫，但还是生活的很幸福。一天张望突然流鼻血不止，去医院检查，才知得了急性白血病，治疗需要30多万的费用，筹钱无果的张国华整日以泪洗面；而张望，清楚自己的家庭情况，毅然决定放弃治疗。记者王小月得知此事，赶往张国华家中，才得知了张望的真实身世.....事件经媒体曝光后，张望引起社会各界关注，全国各地纷纷捐款资助，很快，张望的医疗费就凑够了。感受到社会爱的力量和无数陌生人的关心，也使张望变得无比坚强，她用常人难以想象的痛苦接受着治疗，并一次一次经历着鬼门关，然而就在大家都认为张望的病快要好起来的时候，张望却做了一个出乎所有人意料的决定.</view>
-		</view>
-	</view>
-	<view class="comment-group">
-		<view class="left-comment">
-			<image class="avatar" src="https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2623879042.webp" />
-		</view>
-		<view class="right-comment">
-			<view class="username-rate">
-				<text class="username">凌睿</text>
-				<stars
-				 rate="5"
-				 starsize="30"
-				 istext="{{false}}"
-				></stars>
-			</view>
-			<view class="ralease-time">2018-12-03 12:22:22</view>
-			<view class="content">7岁女孩张望和父亲张国华相依为命，生活虽是清贫，但还是生活的很幸福。一天张望突然流鼻血不止，去医院检查，才知得了急性白血病，治疗需要30多万的费用，筹钱无果的张国华整日以泪洗面；而张望，清楚自己的家庭情况，毅然决定放弃治疗。记者王小月得知此事，赶往张国华家中，才得知了张望的真实身世.....事件经媒体曝光后，张望引起社会各界关注，全国各地纷纷捐款资助，很快，张望的医疗费就凑够了。感受到社会爱的力量和无数陌生人的关心，也使张望变得无比坚强，她用常人难以想象的痛苦接受着治疗，并一次一次经历着鬼门关，然而就在大家都认为张望的病快要好起来的时候，张望却做了一个出乎所有人意料的决定.</view>
-		</view>
-	</view>
+
 </view>
 
-<navigator class="more-comment">查看更多短评</navigator>
+<navigator class="more-comment" url='/pages/comment/comment?id={{id}}&type={{type}}&img={{item.cover.image.small.url}}&title={{item.title}}&rate={{item.rating.value}}'>查看更多短评</navigator>
 

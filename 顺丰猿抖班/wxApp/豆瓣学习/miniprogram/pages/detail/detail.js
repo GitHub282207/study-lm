@@ -17,17 +17,60 @@ Page({
     var that = this;
     var type = options.type;
     var id = options.id;
+    that.setData({
+      type:type,
+      id:id
+    })
     network.getItemDetail({
       type:type,
       id:id,
       success:function(item){
+        var genres = item.genres;
+        // 用斜杠进行拼接
+        genres = genres.join("/");
+        item.genres = genres;
+        var actors = item.actors;
+        var actornames = [];
+        if(actors.length>3){
+          actors = actors.slice(0,3);
+        }
+        for(var index=0;index<actors.length;index++){
+          var actor = actors[index];
+          actornames.push(actor.name);
+        }
+        actornames = actornames.join("/");
+
+        var director = item.directors[0].name;
+        var authors = director+"(导演)/"+actornames;
+        item.authors = authors
         console.log(item);
         that.setData({
           item:item
         })
       }
     })
-
+    network.getItemTags({
+      type:type,
+      id:id,
+      success:function(tags){
+        that.setData({
+          tags:tags
+        });
+      }
+    });
+    network.getItemComments({
+      type:type,
+      id:id,
+      success:function(data){
+        console.log(data);
+        var totalComments = data.total;
+        var comments = data.interests;
+        that.setData({
+          totalComments:totalComments,
+          comments:comments
+        });
+      }
+    })
   },
 
   /**
@@ -41,7 +84,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    wx.pageScrollTo({
+      scrollTop: 0,
+    });
+      
   },
 
   /**
