@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+<!-- 组件不需要配置路由，组件只需三步，引入，声明，拿去别的页面使用 而使用的那个页面需要配置路由才会出现在页面上-->
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png">
-    <Hello :message="title" @sendData="getData"/> 绑定属性用:(bind)  绑定方法用@(on)
+    <Hello :message="title" @sendData="getData"/> 绑定属性用:(bind)动态属性传值  实现父组件向子组件通信  绑定方法用@(on)
     
     {{fromChild}}
     <Hi @sendHi="getHi"/> -->

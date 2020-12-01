@@ -33,7 +33,7 @@ export default {
     login(){
       if (this.username == 'admin' && this.password == '123456'){
         this.$router.push({path: '/home', query: { username: this.username}}) 
-        localStorage.setItem('username', this.username)
+        localStorage.setItem('username', this.username)//把拿到的用户名存到本地
       }
     }
   }

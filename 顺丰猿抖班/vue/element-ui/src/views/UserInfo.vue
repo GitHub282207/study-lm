@@ -21,6 +21,7 @@ export default {
         ],
     }
   },
+  // computed计算属性的应用场景是当你需要把数据源里的数据修饰一番再拿去页面上展示的时候，可以用计算属性来做
   computed: {
     value () {
       return this.num ** 4

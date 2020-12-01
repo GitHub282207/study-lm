@@ -22,7 +22,7 @@ export default {
     console.log('数据发生变化')
   },
   mixins: [addLog], // 代码混入
-  extends: app, // 扩展
+  extends: app, // 扩展 允许重复的存在
   methods: {
     add () {
       this.num++
