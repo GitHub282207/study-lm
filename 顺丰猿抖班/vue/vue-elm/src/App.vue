@@ -1,19 +1,18 @@
 <template>
-  <div id="app">
-    <v-header></v-header>
+  <div class="app">
+    <Header></Header>
   </div>
 </template>
 
 <script>
-import header from '@/components/header/header'
-
+import Header from '@/components/header/Header'
 export default {
-  components:{
-    'v-header':header
+  components: {
+    Header
   }
 }
 </script>
 
-<style>
+<style lang="stylus">
 
 </style>
