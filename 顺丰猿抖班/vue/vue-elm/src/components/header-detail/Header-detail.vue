@@ -5,7 +5,7 @@
         <div class="detail-main">
 
           <h1 class="name">{{seller.name}}</h1>
-          <div class="start-wrapper">
+          <div class="star-wrapper">
             <!-- 星星 -->
           </div>
 
@@ -16,9 +16,9 @@
           </div>
 
           <ul class="supports">
-            <li class="supports-item" v-for="(support, index) in seller.supports" :key="index">
-              <SupportIco :size=2 :type="support.type"></SupportIco>
-              <span class="text">{{support.description}}</span>
+            <li class="supports-item" v-for="item in seller.supports" :key="item.type">
+              <support-ico :size=2 :type="item.type"></support-ico>
+              <span class="text">{{item.description}}</span>
             </li>
           </ul>
 
@@ -31,7 +31,6 @@
           <div class="bulletin">
             <p class="content">{{seller.bulletin}}</p>
           </div>
-
         </div>
       </div>
       <div class="detail-close" @click.stop="hide">
@@ -47,7 +46,7 @@ export default {
   props: {
     seller: {
       type: Object,
-      default () {
+      default() {
         return {}
       }
     }
@@ -66,50 +65,50 @@ export default {
 <style lang="stylus" scoped>
 @import '../../common/stylus/variable.styl';
 .header-detail
-  position fixed    //相对屏幕做固定定位
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
   z-index 100
-  overflow auto   //超出则自动
+  overflow auto
   background $color-background-s
   color $color-white
   opacity 1
-  backdrop-filter blur(10px)    //背景图虚化
+  backdrop-filter blur(10px)
   &.fade-enter, &.fade-leave-to
     opacity 0
     background $color-background
   &.fade-enter-active, &.fade-leave-active
-    transform all 0.5s
+    transition all 0.5s
   .detail-wrapper
     display inline-block
-    width: 100%;
+    width 100%
     min-height 100%
     .detail-main
-      margin-top: 64px;
-      padding-bottom: 64px;
+      margin-top 64px
+      padding-bottom 64px
       .name
-        line-height: 16px;
+        line-height 16px
         text-align center
         font-size $fontsize-large
-        font-weight: bold;
-      .start-wrapper
-        margin-top: 8px;
-        padding: 2px 0;
+        font-weight bold
+      .star-wrapper
+        margin-top 8px
+        padding 2px 0
         text-align center
       .title
         display flex
-        width: 80%;
+        width 80%
         margin 28px auto 24px auto
         .line
           flex 1
-          position: relative;   //相对于它自己文档流所处的位置定位
-          border-bottom: 1px solid rgba(255,255,255,0.2);
-          top -7px
+          position relative
+          border-bottom 1px solid rgba(255, 255, 255, 0.2)
+          top -11px
         .text
-          padding: 0 12px;
-          font-weight: 700;
+          padding 0 12px
+          font-weight 700
           font-size $fontsize-medium
       .supports
         width 80%
@@ -126,17 +125,17 @@ export default {
             font-size $fontsize-small
             margin-left 6px
       .bulletin
-        width: 80%;
-        margin: 0 auto;
+        width 80%
+        margin 0 auto
         .content
-          padding: 12px;
+          padding 0 12px
           line-height 24px
           font-size $fontsize-small
   .detail-close
-    position: relative;
-    width: 30px;
-    height: 30px;
-    margin: -64px auto 0 auto;
-    font-size: $fontsize-large-xxxx;
-    clear: both;
+    position relative
+    width 30px
+    height 30px
+    margin -64px auto 0 auto
+    font-size $fontsize-large-xxxx
+    clear both
 </style>

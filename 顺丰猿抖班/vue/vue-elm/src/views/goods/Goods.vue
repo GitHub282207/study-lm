@@ -3,9 +3,14 @@
     <div class="goods">
       <div class="menu-wrapper" ref="menuWrapper">
         <ul>
-          <li class="menu-item" @click="selectMenu(index)" v-for="(item, index) in goods" :key="index" :class="{'current': currentIndex === index}">
+          <li class="menu-item"
+          @click="selectMenu(index)"
+          v-for="(item, index) in goods" 
+          :key="index"
+          :class="{'current' : currentIndex === index}"
+          >
             <span class="text">
-              <supportIco v-if="item.type > 0" :size=3 :type="item.type"></supportIco>
+              <support-ico v-if="item.type > 0" :size=3 :type="item.type"></support-ico>
               {{item.name}}
             </span>
           </li>
@@ -16,7 +21,7 @@
           <li class="food-list" v-for="(item, index) in goods" :key="index" ref="foodList">
             <h1 class="title">{{item.name}}</h1>
             <ul>
-              <li class="food-item" v-for="(food, index) in item.foods" :key="index">
+              <li class="food-item" v-for="(food, idx) in item.foods" :key="idx">
                 <div class="icon">
                   <img :src="food.icon" alt="">
                 </div>
@@ -25,11 +30,15 @@
                   <p class="desc">{{food.description}}</p>
                   <div class="extra">
                     <span class="count">月售{{food.sellCount}}份</span>
-                    <span>好评率{{food.rating}}</span>
+                    <span>好评率{{food.rating}}%</span>
                   </div>
                   <div class="price">
-                    <span class="now">￥{{food.price}}</span>
-                    <span class="old" v-if="food.oldPrice">￥{{food.oldPrice}}</span>
+                    <span class="now">¥{{food.price}}</span>
+                    <span class="old" v-if="food.oldPrice">¥{{food.oldPrice}}</span>
+                  </div>
+                  <!-- + -->
+                  <div class="cartcontrol-wrapper">
+                    <CartControl :food="food"></CartControl>
                   </div>
                 </div>
               </li>
@@ -39,6 +48,11 @@
       </div>
     </div>
     <!-- 购物车 -->
+    <ShopCart 
+      :selectFoods="selectFoods"
+      :deliveryPrice="seller.deliveryPrice"
+      :minPrice="seller.minPrice"
+    ></ShopCart>
   </div>
 </template>
 
@@ -46,18 +60,27 @@
 import { getGoods } from '@/api'
 import BScroll from 'better-scroll'
 import SupportIco from '@/components/support-ico/Support-ico'
+import ShopCart from '@/components/shop-cart/Shop-cart'
+import CartControl from '@/components/cart-control/Cart-control'
+
 export default {
+  props: {
+    seller: {
+      type: Object
+    }
+  },
   data() {
     return {
       goods: [],
       // currentIndex: 0,
       listHeight: [],
       scrollY: 0
-
     }
   },
   components: {
-    SupportIco
+    SupportIco,
+    ShopCart,
+    CartControl
   },
   computed: {
     currentIndex() {
@@ -68,8 +91,20 @@ export default {
           return i
         }
       }
-
       return 0
+    },
+    selectFoods() {
+      let foods = []
+      for (let good of this.goods) {
+        if (good.foods) {
+          for (let food of good.foods) {
+            if (food.count) {
+              foods.push(food)
+            }
+          }
+        }
+      }
+      return foods
     }
   },
   created() {
@@ -80,7 +115,6 @@ export default {
         this._initScroll()
         this._calculateHeight()
       })
-      
     })
   },
   methods: {
@@ -118,54 +152,54 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang='stylus' scoped>
 @import '../../common/stylus/variable.styl';
 .goods
-  display: flex;
-  position: absolute;
-  top: 177px;
-  bottom: 46px;
-  width: 100%;
-  overflow: hidden;
+  display flex
+  position absolute
+  top 177px
+  bottom 46px
+  width 100%
+  overflow hidden
   .menu-wrapper
     flex 0 0 80px
-    // width: 80px;
-    background: #f3f5f7;
+    width 80px
+    background $color-background-ssss
     .menu-item
       display flex
-      width: 60px;
-      height: 54px;
+      width 60px
+      height 54px
       padding 0 10px
-      text-align: center;
-      justify-content: center;
-      // align-items: center;
-      line-height: 14px;
-      align-items: center;
-      font-size: $fontsize-small;
+      text-align center
+      justify-content center
+      line-height 14px
+      align-items center
+      font-size $fontsize-small
       &.current
-        background: #fff;
-        font-weight: 700;
+        background #fff
+        font-weight 700
   .foods-wrapper
     flex 1
     .title
-      padding-left: 14px;
-      height: 26px;
-      line-height: 26px;
-      border-left 2px solid #d9dde1
-      font-size: $fontsize-small;
+      padding-left 14px
+      height 26px
+      line-height 26px
+      border-left 2px solid #d9dde1;
+      font-size $fontsize-small
       color rgb(147, 153, 159)
-      background: $color-background-ssss;
+      background $color-background-ssss
     .food-item
       display flex
       margin 18px
       padding-bottom 18px
+      position: relative;
       &:last-child
-        margin-bottom: 0;
+        margin-bottom 0
       .icon
         flex 0 0 57px
-        margin-right: 10px;
+        margin-right 10px
         img
-          width: 100%;
+          width 100%
       .content 
         flex 1
         .name 
@@ -195,4 +229,8 @@ export default {
             text-decoration line-through
             font-size 10px
             color rgb(147, 153, 159)
+        .cartcontrol-wrapper
+          position absolute
+          right: 0;
+          bottom: 12px;
 </style>

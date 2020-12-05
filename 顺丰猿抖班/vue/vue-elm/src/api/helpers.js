@@ -1,8 +1,7 @@
-import axios from "axios";
+import axios from 'axios'
 
-// 跨越：浏览器为了安全起见设置的一种机制
-const baseUrl = '';
- 
+const  baseUrl = '';
+
 export function get(url) {
   return function(params = {}) {
     return axios.get(baseUrl + url, {
@@ -13,7 +12,8 @@ export function get(url) {
         return data
       }
     }).catch((err) => {
-      console.log(err)
+      console.log(err);
     })
   }
 }
+
