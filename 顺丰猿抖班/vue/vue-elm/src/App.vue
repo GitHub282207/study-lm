@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <!-- 父组件向子组件通信，在引入组件时传值seller -->
     <v-header :seller="seller"></v-header>
     <div class="tab">
       <div class="tab-wrapper">

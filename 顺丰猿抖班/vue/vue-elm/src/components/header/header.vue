@@ -2,6 +2,7 @@
   <div class="header" @click="showDetail">
     <div class="content-wrapper">
       <div class="avatar">
+        <!-- 开标签和闭标签之间才需要挖坑埋数据，属性是不需要挖坑埋数据的 :src="seller.avatar"动态绑定属性src必须要v-bind简写为：-->
         <img width="64" height="64" :src="seller.avatar" alt="">
       </div>
       
@@ -13,6 +14,7 @@
         <div class="description">
           {{seller.description}}/{{seller.deliveryTime}}分钟送达
         </div>
+        <!-- 接口请求没有html渲染快 所以用  v-if="seller.supports"-->
         <div class="support" v-if="seller.supports">
           <support-ico :size=1 :type="seller.supports[0].type"></support-ico>
           <span class="text">{{seller.supports[0].description}}</span>
@@ -33,7 +35,7 @@
     <div class="background">
       <img :src="seller.avatar" alt="" width="100%" height="100%">
     </div>
-    
+    <!-- 需要脱离文档流 放置页面最后不影响其他dom结构就行-->
     <header-detail :seller="seller" v-show="detailVisible" @hide="hideDetail"></header-detail>
   </div>
 </template>
@@ -43,8 +45,10 @@ import SupportIco from '@/components/support-ico/Support-ico'
 import HeaderDetail from '@/components/header-detail/Header-detail'
 export default {
   props: {
+    //子组件接到父组件app.vue传过来的数据seller，直接拿到页面上使用，埋数据的操作
     seller: {
       type: Object,
+      //父组件如果没传值就放成一个空对象
       default() {
         return {}
       }

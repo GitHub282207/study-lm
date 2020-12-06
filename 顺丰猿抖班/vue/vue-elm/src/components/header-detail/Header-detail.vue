@@ -1,4 +1,9 @@
 <template>
+<!-- 页面展示的数据在app.vue里面有，所以父组件向孙子组件传值seller 可以通过爷爷给爸爸，爸爸给儿子的形式 在header.vue中的引入header-detail.vue的组件中传值seller，在子组件的数据源中props接收-->
+
+<!--  让header-detail组件展示出来，需要组件调用 引入到header.vue中  先在header.vue中的js里import 在在components中声明，在拿到页面使用-->
+
+<!-- 整个页面的出现和消失 点击都有动画效果 所以用transition标签包裹dom结构 控制它添加什么效果 -->
   <transition name="fade">
     <div class="header-detail">
       <div class="detail-wrapper clear-fix">
@@ -65,6 +70,7 @@ export default {
 <style lang="stylus" scoped>
 @import '../../common/stylus/variable.styl';
 .header-detail
+// 四个0将页面扯到满屏
   position fixed
   top 0
   left 0
@@ -75,6 +81,7 @@ export default {
   background $color-background-s
   color $color-white
   opacity 1
+  // 背景图虚化
   backdrop-filter blur(10px)
   &.fade-enter, &.fade-leave-to
     opacity 0
@@ -118,6 +125,7 @@ export default {
           align-items center
           padding 0 12px
           margin-bottom 12px
+          // 最后一个li不用margin-bottom，所以用属性选择器&:last-child
           &:last-child
             margin-bottom 0
           .text
@@ -139,3 +147,5 @@ export default {
     font-size $fontsize-large-xxxx
     clear both
 </style>
+
+
