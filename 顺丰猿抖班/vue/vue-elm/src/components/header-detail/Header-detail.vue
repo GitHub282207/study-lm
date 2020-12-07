@@ -38,6 +38,9 @@
           </div>
         </div>
       </div>
+      <!-- 绑定点击事件让x控制页面的消失 hide要控制自己消失 
+      而现在控制自己消失的是在父组件header.vue的数据源detailVisible: false掌握的 
+      但现在又需要通过自己来控制  即子组件向父组件通信this.$emit('hide', false)  告诉父组件把我消失掉-->
       <div class="detail-close" @click.stop="hide">
         <i class="icon-close"></i>
       </div>
@@ -61,6 +64,9 @@ export default {
   },
   methods: {
     hide() {
+      // hide为自己写的事件，值false为想赋予给父组件的 父组件需要接收子组件用emit抛出去的false
+      // header.vue接收  header-detail引入组件时 先绑定传过来的事件 @(v-on)hide="hideDetail" 
+      //  hideDetail需要在自己的methods中写 事件参数e可以拿到子组件传过来的false，再把 this.detailVisible 赋值为e
       this.$emit('hide', false)
     }
   }

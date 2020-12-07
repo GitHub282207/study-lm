@@ -1,4 +1,5 @@
 <template>
+<!-- 用vue去做项目开发，用的最多就是去写template模板，去写css，做好父子组件的通信，控制好data数据源里的东西 通过js控制数据源 -->
   <div class="header" @click="showDetail">
     <div class="content-wrapper">
       <div class="avatar">
@@ -36,6 +37,8 @@
       <img :src="seller.avatar" alt="" width="100%" height="100%">
     </div>
     <!-- 需要脱离文档流 放置页面最后不影响其他dom结构就行-->
+
+    <!-- 页面需要频繁出现和消失，用v-show，去控制优惠的页面出现与消失，可以通过控制该组件的出现和消失 给头部header绑定点击事件@click="showDetail-->
     <header-detail :seller="seller" v-show="detailVisible" @hide="hideDetail"></header-detail>
   </div>
 </template>
@@ -63,6 +66,9 @@ export default {
     SupportIco,
     HeaderDetail
   },
+  // 两个 console.log会同时出现  涉及到事件的捕获和冒泡 这里是冒泡事件   @click.stop加个.stop阻止冒泡
+  // 一个容器a里面放了一个子容器b，当给b绑定点击事件时，点到b点击事件触发先点到的一定是a，一定是先执行捕获在执行冒泡
+  // edeventlistens第三个参数默认把捕获事件设为false了关闭了，只执行冒泡事件
   methods: {
     showDetail() {
       this.detailVisible = true
