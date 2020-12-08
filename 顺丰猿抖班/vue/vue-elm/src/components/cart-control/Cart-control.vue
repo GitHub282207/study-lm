@@ -1,12 +1,15 @@
 <template>
   <div class="cart-control">
+    <!-- 减号是滚出来的，所以有动画效果 transition-->
     <transition name="move">
+      <!-- 没有值的时候减号不出现在页面上 v-show="food.count > 0"-->
       <div class="cart-decrease" v-show="food.count > 0" @click.stop="decreaseCart">
         <span class="inner icon-remove_circle_outline"></span>
       </div>
     </transition>
 
     <div class="cart-count" v-show="food.count > 0">{{food.count}}</div>
+    <!-- 加号绑定点击事件 -->
     <div class="cart-add icon-add_circle" @click.stop="addCart"></div>
   </div>
 </template>

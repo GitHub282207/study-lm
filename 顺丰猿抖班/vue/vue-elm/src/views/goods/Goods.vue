@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="goods">
-      <!-- 左边 让左侧所有的菜单先出现 从接口请求  封装的api里面的index.js 里面的getGoods 获取商品的接口
+      <!-- 左边 
+      让左侧所有的菜单先出现 从接口请求  封装的api里面的index.js 里面的getGoods 获取商品的接口
       在页面script里面引入import { getGoods } from '@/api'  再在生命周期里面调用掉getGoods函数
       -->
       <div class="menu-wrapper" ref="menuWrapper">
@@ -28,7 +29,14 @@
           </li>
         </ul>
       </div>
-      <!-- 右边 -->
+      <!-- 右边
+      页面滚动也要让左边菜单跟着动 即左边白底到底给到谁 也就是说那个current类名到底给到谁
+      右边页面的滚动让当前current值变为几  问题？右边区域滚动，我们要计算到底哪个第一个li出现在可视区域内
+       高度为0左侧菜单才会实现跳转  怎么才知道右边的菜单此时此刻滚了多少？每个菜系有多高不能确定  由每个菜系里面的菜品决定
+       有一个方法可以取到页面滚动的距离  但我们要把每一菜系的dom结构的高度动态的计算出来 主要是有几个第二个li
+       现在我们有办法拿到页面到底滚动了多少距离 还能拿到每一个菜系到底有多高，所以可以计算出来 比如当前滚动了800像素，此时是哪一个菜系出现在可视区域 
+       在修改currentIndex的值
+       -->
       <div class="foods-wrapper" ref="foodsWrapper">
         <!-- 用到两层for循环，两个ul li结构 热销榜是一个大容器，有很多这样的大容器，需要循环  
         里面包含的每一个菜品也需要循环  第二个li里面就是图片，菜品，加号减号的dom结构 
@@ -95,7 +103,7 @@ export default {
       goods: [],
       // currentIndex: 0,
       listHeight: [],
-      scrollY: 0
+      scrollY: 0//页面所滚动的距离
     }
   },
   components: {
@@ -106,12 +114,15 @@ export default {
   computed: {
     currentIndex() {
       for (let i = 0; i < this.listHeight.length; i++) {
+        // for循环执行第二遍的时候I是1，height1代表的是第一个菜系，height2代表的是第一个和第二个菜系，
         let height1 = this.listHeight[i]
         let height2 = this.listHeight[i + 1]
+        // 页面滚动距离没有超过第一个菜系的距离 此时左侧菜单白底应该定义在第一个 !height2可能越界
         if (!height2 || (this.scrollY >= height1 && this.scrollY < height2)) {
           return i
         }
       }
+      // 默认选中左侧第一个菜单
       return 0
     },
     selectFoods() {
@@ -162,16 +173,19 @@ export default {
       this.menuScroll = new BScroll(this.$refs.menuWrapper, {
         click: true
       })
+      // 给右边页面添加了 BScroll效果  BScroll可以计算右边滚动的距离  this.foodsScroll.on监听滚动事件
       this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
         click: true,
-        probeType: 3
+        probeType: 3//放开滚动事件
       })
       this.foodsScroll.on('scroll', pos => {
         console.log(pos)
-        this.scrollY = Math.abs(Math.round(pos.y))
+        this.scrollY = Math.abs(Math.round(pos.y))//取整再取绝对值 scrollY 变化，currentIndex()函数返回值也会变化
       })
     },
+    // 计算每一个菜系的高度 
     _calculateHeight() {
+      // 先拿到每一个菜系foodList的dom结构
       let foodList = this.$refs.foodList
       let height = 0
       this.listHeight.push(height)

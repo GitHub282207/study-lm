@@ -158,8 +158,9 @@ export default {
       .logo-wrapper
         vertical-align middle
         display inline-block
+        // 相对定位，让购物车相对于自己定位 top 10px; 往上突出
         position relative
-        top: -10px;
+        top -10px
         margin 0 12px
         padding 6px
         width 56px
@@ -173,6 +174,7 @@ export default {
           background $color-dark-grey
           border-radius 50%
           text-align center
+          // 添加类，选中时给蓝色
           &.highlight
             background $color-blue
           .icon-shopping_cart
