@@ -92,6 +92,8 @@ import ShopCart from '@/components/shop-cart/Shop-cart'
 import CartControl from '@/components/cart-control/Cart-control'
 
 export default {
+  // 拿到app.vue给的seller，就要给shop-cart.vue子组件传值 调用子组件时:deliveryPrice="seller.deliveryPrice"
+  // shop-cart在数据源里面接收一个deliveryPrice，拿到页面使用
   props: {
     seller: {
       type: Object
@@ -125,10 +127,15 @@ export default {
       // 默认选中左侧第一个菜单
       return 0
     },
+    // 加号点击后把带有count字段的food加入购物车组件  采用遍历找到foods里面带有count字段的food
+    // 数据一发生变化就一定要执行的方法 数据源变化就会自动执行 computed计算属性
     selectFoods() {
       let foods = []
+      // 数据结构，goods里面9个good，每个good里面一个foods数组 foods里面有food
       for (let good of this.goods) {
+        // 判断数据是否已经请求回来了
         if (good.foods) {
+          // food代表每一道菜
           for (let food of good.foods) {
             if (food.count) {
               foods.push(food)
@@ -136,7 +143,7 @@ export default {
           }
         }
       }
-      return foods
+      return foods  //再把返回出来的数据也就是选中的所有的菜交给购物车  就是父组件在调用子组件时给子组件传值 子组件在通过数据源接收
     }
   },
   created() {

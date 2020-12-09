@@ -18,6 +18,9 @@
     </div>
 
     <div class="page">
+      <!-- 对于app.vue来说,goods.vue是路由组件，相当于goods.vue的代码都写到这里来了
+      seller这个值在goods.vue中直接用props接收
+       -->
       <router-view :seller="seller"></router-view>
     </div>
   </div>

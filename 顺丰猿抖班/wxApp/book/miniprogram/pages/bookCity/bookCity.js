@@ -8,7 +8,7 @@ Page({
     hotData:[],
     classifyData:[]
   },
-
+//  云开发用云函数返回，意味着我们需要到云函数里面做爬数据 node爬虫 的操作
   getList() {
     wx.showLoading({
       title: '正在加载'
@@ -40,6 +40,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 一进页面就要发起接口请求拿到数据
     this.getList()
   },
 

@@ -1,5 +1,8 @@
 <view class="container">
 	<view class="userinfo">
+		<!-- open-type="getUserInfo"使该按钮具备获取用户信息的功能 
+		wx:if="{{!hasUserInfo}}"而且没有用户信息时出现button   hasUserInfo要从数据源中来
+		-->
 		<button
 		 wx:if="{{!hasUserInfo}}"
 		 open-type="getUserInfo"
