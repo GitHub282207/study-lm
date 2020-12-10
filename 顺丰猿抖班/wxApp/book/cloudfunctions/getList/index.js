@@ -34,7 +34,7 @@ exports.main = async (event, context) => {
     hotData.push(obj)//for循环会循环4次，每一次会拿到一个obj对象，再把它添加到hotData数组里面，每个对象是一本书的详情
   }
 
-  // 分类推荐
+  // 分类推荐  从.block这块html结构开始扒
   let classifyList = $('.block')
   let classifyData = [] // 分类
   for (let i = 0; i < classifyList.length; i++) {

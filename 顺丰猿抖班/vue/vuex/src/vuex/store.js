@@ -1,4 +1,5 @@
 import Vue from 'vue'
+// 要让该文件与项目有关系，要让这个项目里面能够集成vuex的功能去使用  让vuex在vue下生效
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
