@@ -2,7 +2,7 @@ import Vue from 'vue'
 // 要让该文件与项目有关系，要让这个项目里面能够集成vuex的功能去使用  让vuex在vue下生效
 import Vuex from 'vuex'
 
-Vue.use(Vuex)
+Vue.use(Vuex)//Vue结合了vuex的功能
 
 const state = { // state 公共数据源
   count: 1
@@ -41,7 +41,7 @@ const state2 = {
 const moduleB = {
   state2
 }
-export default new Vuex.Store({
+export default new Vuex.Store({//让结合了vuex的vue能够到全局生效
   modules: {
     a: moduleA,
     b: moduleB
