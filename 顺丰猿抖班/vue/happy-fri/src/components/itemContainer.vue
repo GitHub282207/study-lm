@@ -77,7 +77,7 @@ export default {
 		submitAnswer() {
 			if (this.choosedNum !== null) {
 					this.addNum(this.choosedId)
-					this.$router.push('/score')
+					this.$router.push('/score')//js实现路由页面跳转
       } else {
         alert('您还没有选择答案噢')
       }

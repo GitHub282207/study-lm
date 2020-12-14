@@ -57,7 +57,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less">//scoped样式私有化
 body {
   background-image: url(../../images/4-1.jpg);
   padding-top: 1.2rem;

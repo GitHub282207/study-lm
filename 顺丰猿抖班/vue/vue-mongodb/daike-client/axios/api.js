@@ -7,13 +7,13 @@ import { Toast } from 'vant';
 
 export default function $axios(options) {
   return new Promise((resolve, reject) => {
-    const instance = axios.create({
+    const instance = axios.create({//instance接口请求
       baseURL: config.baseURL
     })
 
     // 请求拦截
     instance.interceptors.request.use(
-      config => {
+      config => {//发起请求成功的参数
         if (config.method.toLocaleUpperCase() === 'POST' || config.method.toLocaleLowerCase() === 'post') {
           config.data = qs.stringify(config.data)
         }
