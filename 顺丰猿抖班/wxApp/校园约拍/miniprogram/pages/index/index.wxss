@@ -1,0 +1,12 @@
+/* pages/index/index.wxss */
+.bg-img{
+    z-index: 1;
+}
+image{
+    position: absolute;
+    top: -60px;
+}
+.page__bd{
+    overflow: hidden;
+    position: relative;
+}
