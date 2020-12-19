@@ -1,12 +1,14 @@
 import apiLogin from './interface/login'
+import apiRegister from './interface/register'
 
 const install = Vue => {
-  Object.defineProperties(Vue.prototype, {//Object.defineProperties拦截vue的原型，然后给它增加$http
+  Object.defineProperties(Vue.prototype, {
     $http: {
       get() {
         return Object.assign(
           {},
           apiLogin,
+          apiRegister
           // ...
         )
       }
