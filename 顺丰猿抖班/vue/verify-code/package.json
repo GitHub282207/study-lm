@@ -1,15 +1,23 @@
 {
-  "name": "vue-element",
+  "name": "ss-verify-code",
   "version": "0.1.0",
-  "private": true,
+  "main":"lib/verify-code.umd.main.js",
+  "author": "皮卡丘",
+  "description": "test-test",
+  "keywords": [
+    "vue",
+    "verify-code",
+    "ss-verify-code"
+  ],
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib":"vue-cli-service build --target lib --name verify-code --dest lib ./src/main.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "ss-verify-code": "file:ss-verify-code-0.1.0.tgz",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -19,7 +27,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-router": "^3.4.9",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
