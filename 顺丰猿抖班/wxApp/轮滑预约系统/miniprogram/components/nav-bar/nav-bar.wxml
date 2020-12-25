@@ -1,0 +1,12 @@
+<!--components/nav-bar/nav-bar.wxml-->
+<view>
+	<!-- 为了弥补组件高度为0，用另外一个子容器的高度撑起来，因为container容器给了一个固定定位脱离了文档流，父容器高度为0 -->
+	<view style="height:{{topHeight}}px"></view>
+	<view class="container">
+		<!-- style属性不写height和写的区别，写了说明要给定一个具体的数字值，不给说明可以给很多属性，它是个字符串，可以采用模板拼接的方式设置高，背景颜色，文字颜色等属性 -->
+		<view style="{{statusBarStyle}}"></view>
+		<view class="nav-bar" style="{{navBarStyle}}">{{title}}</view>
+	</view>
+
+</view>
+

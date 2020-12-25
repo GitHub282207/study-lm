@@ -4,6 +4,7 @@
     {{message}}
     <hr/>
     {{fromHi}}
+    <!-- 父组件向子组件传值很简单因为本来子组件就要拿去父组件页面上用，那子组件怎么给父组件传值呢？ -->
     <button @click="send">发送</button> <!-- 子传父需要有事件-->
   </div>
 </template>
@@ -19,7 +20,7 @@ export default {
   },
   methods: {
     send () {
-      this.$emit('sendData', this.msg)
+      this.$emit('sendData', this.msg)//借助$emit往外发数据，第一个参数为方法名，第二个为要发的数据 然后就可以在父组件里面去接收
     }
   }
 }
