@@ -32,7 +32,7 @@ export default {
     B
   },
   methods: {
-    getData (e) {//接收子组件传过来的数据方法，方法是子组件$emit传过来后重写的
+    getData (e) {//接收子组件传过来的数据方法，方法是子组件$emit传过来后重写的，sendData携带的参数就是那个传过来的值就在参数里面
       this.fromChild = e
     },
     getHi (e) {
