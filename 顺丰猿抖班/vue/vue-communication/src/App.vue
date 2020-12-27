@@ -12,8 +12,8 @@
 </template>
 
 <script>
-// import Hello from '@/components/Hello'
-// import Hi from '@/components/Hi'
+import Hello from '@/components/Hello'
+import Hi from '@/components/Hi'
 import A from '@/components/A'
 import B from '@/components/B'
 export default {
