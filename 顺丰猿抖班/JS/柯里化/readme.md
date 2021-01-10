@@ -1,4 +1,4 @@
 柯里化的概念
 把一个接收多个参数的函数化解成一系列接受一个参数的函数
 分割参数，slice,splice，
-arguments
+arguments收集参数
