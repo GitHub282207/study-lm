@@ -1,4 +1,4 @@
-function cb(func, context) {
+function cb(func, context) {//仅仅只是绑定了this作用域
   if (context === void 0) return func;
   return function() {
     return func.apply(context, arguments)
@@ -7,9 +7,10 @@ function cb(func, context) {
 
 
 function sortedIndex(array, obj, iteratee, context) {
-  iteratee = cb(iteratee, context)
+  iteratee = cb(iteratee, context)//保证了iteratee函数作用域不被更改
 
   let low = 0, high = array.length-1;
+  // let low = 0, high = array.length; low < high ；else high = mid; return high
 
   while(low <= high) {
     let mid = Math.floor((low + high) / 2)
