@@ -12,6 +12,7 @@ function imgLocation(parent, content){
     // 获取可视区宽度(浏览器窗口宽度)，图片宽度(box宽度)，一行能放几张图片
     var imgWidth = ccontent[0].offsetWidth
     var num = Math.floor(document.documentElement.clientWidth / imgWidth)
+    console.log(num);
     // cparent.style.width = `${imgWidth * num}px` 
     cparent.style.cssText = `width: ${imgWidth * num}px` // 设置一个css属性
 
