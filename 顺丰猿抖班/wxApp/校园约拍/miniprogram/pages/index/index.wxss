@@ -10,3 +10,18 @@ image{
     overflow: hidden;
     position: relative;
 }
+.header {
+    position: relative;
+    /* height:300rpx; */
+    /* background: linear-gradient(to bottom, #56ccf2, #2f80ed); */
+  }
+  
+  .bg_ware {
+    position: absolute;
+    left: 0;
+    bottom: -2rpx;
+    width: 100%;
+    mix-blend-mode: screen;
+    height: 120rpx;
+    margin-top: 30px;
+  }

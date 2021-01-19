@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/login/login",
     "pages/divide/divide",
     "pages/lanuch/lanuch",
     "pages/message/message",
-    "pages/userCenter/userCenter" 
+    "pages/userCenter/userCenter"  
   ],
   "window": {
     "navigationStyle": "custom",

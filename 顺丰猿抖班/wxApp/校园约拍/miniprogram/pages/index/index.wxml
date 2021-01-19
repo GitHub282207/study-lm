@@ -5,14 +5,21 @@
 				校园约拍
 			</view>
 		</view>
+		<view class="header">
+			<image class="bg_ware" src="https://moyv.top/wechat/images/bg_wave.gif"></image>
+		</view>
 	</view>
-	<view class="shadow-blur">
+</view>
+<!-- <view class="shadow-blur">
 		<image
-		 src="https://image.weilanwl.com/gif/wave.gif"
+		 src="https://moyv.top/wechat/images/bg_wave.gif"
 		 mode="scaleToFill"
 		 class="gif-black response"
 		 style="height:100rpx;margin-top:-100rpx;"
 		></image>
-	</view>
-</view>
+	</view>	
+</view> -->
+<!-- <view class="header">
+	<image class="bg_ware" src="https://moyv.top/wechat/images/bg_wave.gif"></image>
+</view> -->
 
