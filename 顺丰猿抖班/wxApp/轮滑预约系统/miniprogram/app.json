@@ -1,16 +1,15 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/home/home",
     "pages/index/index",
     "pages/appointment/appointment",
-    "pages/mine/mine"
+    "pages/mine/mine" 
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#000000", 
-    "navigationBarTitleText": "轮滑",
-    "backgroundColor": "#000000", 
-    "navigationBarTextStyle": "white"
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#cccccc",
