@@ -11,3 +11,4 @@
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
 登录注册实现身份的不同
+搜索功能
