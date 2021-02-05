@@ -29,3 +29,29 @@ const deleteDuplicates = function(head){
 // 1>2>3>3>4>4>5   1>2>5
 
 
+// 虚拟节点
+const deleteDuplicates = function(head){
+if(!head || !head.next){
+    return head
+}
+
+// dummy
+let dummy = new ListNode()
+// dummy永远指向头结点
+dummy.next = head
+let cur = dummy
+// cur后面必须要有两个节点
+while(cur.next && cur.next.next){
+    // 对两个节点进行比较
+    if(cur.next.val === cur.next.next.val){
+        // 记录重复的值
+        let val = cur.next.val
+        while(cur.next && cur.next.val === val){
+            cur.next = cur.next.next
+        }
+        }else{
+            cur = cur.next
+    }
+}
+return dummy.next
+}
