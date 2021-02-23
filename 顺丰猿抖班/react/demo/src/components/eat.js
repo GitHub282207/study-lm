@@ -27,7 +27,9 @@ class Eat extends Component {//类编程    还有一种函数式编程  方便�
         // console.log(e);
         // this.state.inputValue = e.target.value
         this.setState({
-            inputValue = e.target.value
+            // 通过事件参数拿到input框里面的值 两种方法
+            // inputValue = e.target.value
+            inputValue:this.input.value
         })
     }
 
@@ -58,7 +60,14 @@ class Eat extends Component {//类编程    还有一种函数式编程  方便�
             <Fragment>
                 <div>
                     {/* <label for="addGoods">加菜：</label> */}
-                    <input id="addGoods" className="input" value={this.state.inputValue} onChange={this.inputChange.bind(this)} ></input>
+                    <input id="addGoods" 
+                    className="input" 
+                    value={this.state.inputValue} 
+                    onChange={this.inputChange.bind(this)}
+                    ref={(input)=>{//用ref去绑定input框里面的值
+                        this.input = input
+                    }}
+                    ></input>
                     <button onClick={this.addList.bind(this)}>下单</button>
                 </div>
                 <ul>
