@@ -12,8 +12,6 @@ image{
 }
 .header {
     position: relative;
-    /* height:300rpx; */
-    /* background: linear-gradient(to bottom, #56ccf2, #2f80ed); */
   }
   
   .bg_ware {

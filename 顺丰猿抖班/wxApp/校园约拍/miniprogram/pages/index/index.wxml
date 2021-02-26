@@ -1,3 +1,4 @@
+<!-- 头部图片 -->
 <view class='page__bd'>
 	<view class="bg-img padding-tb-xl" style="background-image:url('http://wx4.sinaimg.cn/mw690/006UdlVNgy1g2v2t1ih8jj31hc0p0qej.jpg');background-size:cover;">
 		<view class="cu-bar">
@@ -10,16 +11,8 @@
 		</view>
 	</view>
 </view>
-<!-- <view class="shadow-blur">
-		<image
-		 src="https://moyv.top/wechat/images/bg_wave.gif"
-		 mode="scaleToFill"
-		 class="gif-black response"
-		 style="height:100rpx;margin-top:-100rpx;"
-		></image>
-	</view>	
-</view> -->
-<!-- <view class="header">
-	<image class="bg_ware" src="https://moyv.top/wechat/images/bg_wave.gif"></image>
-</view> -->
+<!-- 具体内容 -->
+<view class="page_bd">
+
+</view>
 
