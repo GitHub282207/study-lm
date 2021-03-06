@@ -8,7 +8,7 @@ function a(e, r) {
   console.log(e + r);
   console.log(this.name);
 }
- // cali()什么参数都不接的话，this一定指向window
+ // call()什么参数都不接的话，this一定指向window
 Function.prototype.mycall = function(thisArg) {
   if (typeof this !== 'function') {
     throw new TypeError('error')
