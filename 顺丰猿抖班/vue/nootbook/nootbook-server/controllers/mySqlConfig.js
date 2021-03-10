@@ -1,3 +1,4 @@
+// node和mysql建立连接
 const mysql = require('mysql')
 const config = require('./defaultConfig')
 
